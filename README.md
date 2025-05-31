@@ -62,6 +62,7 @@ Digite a linha (1 a 3):
 ## ✍️ Autores
 
 Igor Machado — @souzalift
+Rain Rosa - @raikonzz
 
 Implementação textual feita com foco didático, validações robustas e organização escalável.
 
