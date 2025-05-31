@@ -103,27 +103,38 @@ public class JogoDaVelha {
     }
 
     static void exibirTabuleiro() {
-        System.out.println("\nTabuleiro:");
-        System.out.println(" ");
-        for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < tamanho; j++) {
-                System.out.print(" " + tabuleiro[i][j] + " ");
-                if (j < tamanho - 1) {
-                    System.out.print("|");
-                }
-            }
-            System.out.println();
-            if (i < tamanho - 1) {
-                for (int j = 0; j < tamanho; j++) {
-                    System.out.print("---");
-                    if (j < tamanho - 1) {
-                        System.out.print("+");
-                    }
-                }
-                System.out.println();
-            }
-        }
+    System.out.println("\nTabuleiro:\n");
+
+    // Cabeçalho com índices das colunas (começando do 1)
+    System.out.print("    ");
+    for (int j = 1; j <= tamanho; j++) {
+        System.out.printf(" %2d ", j);
     }
+    System.out.println();
+
+    // Linha separadora
+    System.out.print("    ");
+    for (int j = 0; j < tamanho; j++) {
+        System.out.print("----");
+    }
+    System.out.println();
+
+    // Corpo do tabuleiro com índices das linhas (começando do 1)
+    for (int i = 0; i < tamanho; i++) {
+        System.out.printf("%2d |", i + 1);
+        for (int j = 0; j < tamanho; j++) {
+            System.out.printf(" %s |", tabuleiro[i][j]);
+        }
+        System.out.println();
+
+        // Linha separadora
+        System.out.print("    ");
+        for (int j = 0; j < tamanho; j++) {
+            System.out.print("----");
+        }
+        System.out.println();
+    }
+}
 
     static void jogarPartida() {
         boolean jogador1Vez = true;
@@ -178,24 +189,25 @@ public class JogoDaVelha {
     }
 
     static int[] pedirPosicao() {
-        int linha, coluna;
-        while (true) {
-            try {
-                System.out.print("Digite a linha (0 a " + (tamanho - 1) + "): ");
-                linha = Integer.parseInt(scanner.nextLine());
-                System.out.print("Digite a coluna (0 a " + (tamanho - 1) + "): ");
-                coluna = Integer.parseInt(scanner.nextLine());
+    int linha, coluna;
+    while (true) {
+        try {
+            System.out.print("Digite a linha (1 a " + tamanho + "): ");
+            linha = Integer.parseInt(scanner.nextLine()) - 1;
 
-                if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
-                    return new int[]{linha, coluna};
-                } else {
-                    System.out.println("Posição inválida.");
-                }
-            } catch (Exception e) {
-                System.out.println("Entrada inválida, use apenas números.");
+            System.out.print("Digite a coluna (1 a " + tamanho + "): ");
+            coluna = Integer.parseInt(scanner.nextLine()) - 1;
+
+            if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+                return new int[]{linha, coluna};
+            } else {
+                System.out.println("Posição inválida. Digite números entre 1 e " + tamanho + ".");
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida, use apenas números.");
         }
     }
+}
 
     static int[] jogadaDaMaquina() {
         Random rand = new Random();
