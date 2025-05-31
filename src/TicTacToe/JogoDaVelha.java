@@ -59,9 +59,19 @@ public class JogoDaVelha {
             }
         }
 
-        System.out.print("Deseja jogar contra a máquina? (s/n): ");
-        String resposta = scanner.nextLine();
-        if (resposta.equalsIgnoreCase("s")) {
+        String resposta;
+        while (true) {
+            System.out.print("Deseja jogar contra a máquina? (s/n): ");
+            resposta = scanner.nextLine().trim().toLowerCase();
+
+            if (resposta.equals("s") || resposta.equals("n")) {
+                break;
+            } else {
+                System.out.println("Entrada inválida. Digite apenas 's' para sim ou 'n' para não.");
+            }
+        }
+
+        if (resposta.equals("s")) {
             jogador2 = "Máquina";
             simbolo2 = simbolo1.equalsIgnoreCase("O") ? "X" : "O";
             contraMaquina = true;
@@ -103,27 +113,12 @@ public class JogoDaVelha {
     }
 
     static void exibirTabuleiro() {
-    System.out.println("\nTabuleiro:\n");
+        System.out.println("\nTabuleiro:\n");
 
-    // Cabeçalho com índices das colunas (começando do 1)
-    System.out.print("    ");
-    for (int j = 1; j <= tamanho; j++) {
-        System.out.printf(" %2d ", j);
-    }
-    System.out.println();
-
-    // Linha separadora
-    System.out.print("    ");
-    for (int j = 0; j < tamanho; j++) {
-        System.out.print("----");
-    }
-    System.out.println();
-
-    // Corpo do tabuleiro com índices das linhas (começando do 1)
-    for (int i = 0; i < tamanho; i++) {
-        System.out.printf("%2d |", i + 1);
-        for (int j = 0; j < tamanho; j++) {
-            System.out.printf(" %s |", tabuleiro[i][j]);
+        // Cabeçalho com índices das colunas (começando do 1)
+        System.out.print("    ");
+        for (int j = 1; j <= tamanho; j++) {
+            System.out.printf(" %2d ", j);
         }
         System.out.println();
 
@@ -133,8 +128,23 @@ public class JogoDaVelha {
             System.out.print("----");
         }
         System.out.println();
+
+        // Corpo do tabuleiro com índices das linhas (começando do 1)
+        for (int i = 0; i < tamanho; i++) {
+            System.out.printf("%2d |", i + 1);
+            for (int j = 0; j < tamanho; j++) {
+                System.out.printf(" %s |", tabuleiro[i][j]);
+            }
+            System.out.println();
+
+            // Linha separadora
+            System.out.print("    ");
+            for (int j = 0; j < tamanho; j++) {
+                System.out.print("----");
+            }
+            System.out.println();
+        }
     }
-}
 
     static void jogarPartida() {
         boolean jogador1Vez = true;
@@ -189,25 +199,25 @@ public class JogoDaVelha {
     }
 
     static int[] pedirPosicao() {
-    int linha, coluna;
-    while (true) {
-        try {
-            System.out.print("Digite a linha (1 a " + tamanho + "): ");
-            linha = Integer.parseInt(scanner.nextLine()) - 1;
+        int linha, coluna;
+        while (true) {
+            try {
+                System.out.print("Digite a linha (1 a " + tamanho + "): ");
+                linha = Integer.parseInt(scanner.nextLine()) - 1;
 
-            System.out.print("Digite a coluna (1 a " + tamanho + "): ");
-            coluna = Integer.parseInt(scanner.nextLine()) - 1;
+                System.out.print("Digite a coluna (1 a " + tamanho + "): ");
+                coluna = Integer.parseInt(scanner.nextLine()) - 1;
 
-            if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
-                return new int[]{linha, coluna};
-            } else {
-                System.out.println("Posição inválida. Digite números entre 1 e " + tamanho + ".");
+                if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+                    return new int[]{linha, coluna};
+                } else {
+                    System.out.println("Posição inválida. Digite números entre 1 e " + tamanho + ".");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, use apenas números.");
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Entrada inválida, use apenas números.");
         }
     }
-}
 
     static int[] jogadaDaMaquina() {
         Random rand = new Random();
