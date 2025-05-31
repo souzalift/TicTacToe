@@ -38,7 +38,7 @@ java JogoDaVelha
 ```bash
 ==== JOGO DA VELHA INTERATIVO ====
 
-Digite o nome do Jogador 1: Fábio
+Digite o nome do Jogador 1: Fábio Sales
 Digite o símbolo do Jogador 1 (apenas 1 caractere, ex: X, O, A): X
 Deseja jogar contra a máquina? (s/n): s
 Selecione o tamanho do tabuleiro (3, 5, 7): 3
@@ -46,17 +46,17 @@ Selecione o tamanho do tabuleiro (3, 5, 7): 3
 =========== TABULEIRO ===========
 
      1   2   3
-    ───────────────
+    ────────────
+ 1 │   │   │   │
+    ────────────
+ 2 │   │   │   │
+    ────────────
+ 3 │   │   │   │
+    ────────────
 
-1 │ │ │ │
-───────────────
-2 │ │ │ │
-───────────────
-3 │ │ │ │
-───────────────
-
-Fábio (X), sua vez.
+Fábio Sales (X), sua vez.
 Digite a linha (1 a 3):
+
 ```
 
 ## ✍️ Autores
