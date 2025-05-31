@@ -58,8 +58,14 @@ public class JogoDaVelha {
         } else {
             System.out.print("Digite o nome do Jogador 2: ");
             jogador2 = scanner.nextLine();
-            System.out.print("Digite o símbolo do Jogador 2: ");
-            simbolo2 = scanner.nextLine();
+            do {
+              System.out.print("Digite o símbolo do Jogador 2: ");
+              simbolo2 = scanner.nextLine();
+
+              if (simbolo2.equalsIgnoreCase(simbolo1)) {
+              System.out.println("Símbolo já utilizado pelo Jogador 1. Escolha um símbolo diferente.");
+              }
+              } while (simbolo2.equalsIgnoreCase(simbolo1));
         }
     }
 
