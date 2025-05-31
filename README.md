@@ -35,6 +35,7 @@ java JogoDaVelha
 
 ## 💡 Exemplo de uso
 
+```bash
 ==== JOGO DA VELHA INTERATIVO ====
 
 Digite o nome do Jogador 1: Fábio
@@ -56,11 +57,14 @@ Selecione o tamanho do tabuleiro (3, 5, 7): 3
 
 Fábio (X), sua vez.
 Digite a linha (1 a 3):
+```
 
-##✍️ Autores
+## ✍️ Autores
+
 Igor Machado — @souzalift
 
 Implementação textual feita com foco didático, validações robustas e organização escalável.
 
-##📄 Licença
+## 📄 Licença
+
 Este projeto é de uso livre para fins educacionais e pode ser adaptado com créditos ao autor.
