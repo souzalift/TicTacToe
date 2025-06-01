@@ -27,8 +27,24 @@ public class JogoDaVelha {
     static boolean contraMaquina = false;
 
     public static void main(String[] args) {
-        System.out.println("==== JOGO DA VELHA INTERATIVO ====");
-        iniciarJogo();
+        String opcao;
+
+        while (true) {
+            System.out.println("==== JOGO DA VELHA INTERATIVO ====");
+            System.out.println("1 - Iniciar Jogo");
+            System.out.println("2 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextLine().trim();
+
+            if (opcao.equals("1")) {
+                iniciarJogo();
+            } else if (opcao.equals("2")) {
+                System.out.println("Encerrando o jogo. Até logo!");
+                break;
+            } else {
+                System.out.println("Opção inválida. Digite '1' para iniciar ou '2' para sair.\n");
+            }
+        }
     }
 
     static void iniciarJogo() {
