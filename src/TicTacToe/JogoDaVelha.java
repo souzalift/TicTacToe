@@ -1,15 +1,16 @@
 /**
-Trabalho LPA - UCSAL 2025.1
-Prof. Fabio Sales
-Tema: Jogo da Velha
-
-Alunos:,
-Igor Machado
-Marcelo Junior
-Raian Teles
-Agnaldo Nascimento
-Alisson Brito
-*/
+ * Trabalho LPA - UCSAL 2025.1
+ * Prof. Fabio Sales
+ * Tema: Jogo da Velha
+ *
+ * Alunos:
+ * Agnaldo Nascimento
+ * Alisson Brito
+ * Gustavo Chaves
+ * Igor Machado
+ * Marcelo Junior
+ * Raian Teles
+ */
 package TicTacToe;
 
 import java.util.Random;
@@ -106,6 +107,7 @@ public class JogoDaVelha {
         }
     }
 
+    // Método para selecionar o tamanho do tabuleiro
     static void selecionarTamanhoTabuleiro() {
         System.out.print("Selecione o tamanho do tabuleiro (3, 5, 7): ");
         tamanho = Integer.parseInt(scanner.nextLine());
@@ -115,6 +117,7 @@ public class JogoDaVelha {
         }
     }
 
+    // Método para inicializar o tabuleiro
     static void inicializarTabuleiro() {
         tabuleiro = new String[tamanho][tamanho];
         for (int i = 0; i < tamanho; i++) {
@@ -124,6 +127,7 @@ public class JogoDaVelha {
         }
     }
 
+    // Método para exibir o tabuleiro
     static void exibirTabuleiro() {
         System.out.println("\nTabuleiro:\n");
 
@@ -158,6 +162,7 @@ public class JogoDaVelha {
         }
     }
 
+    // Método principal para jogar a partida
     static void jogarPartida() {
         boolean jogador1Vez = true;
         int jogadas = 0;
@@ -210,6 +215,7 @@ public class JogoDaVelha {
         }
     }
 
+    // Método para pedir a posição ao usuário
     static int[] pedirPosicao() {
         int linha, coluna;
         while (true) {
@@ -272,6 +278,7 @@ public class JogoDaVelha {
         return diagPrincipal || diagSecundaria;
     }
 
+    // Método para exibir o placar
     static void exibirPlacar() {
         System.out.println("\n--- PLACAR ---");
         System.out.println(jogador1 + ": " + vitorias1 + " vitória(s)");
