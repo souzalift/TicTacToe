@@ -30,7 +30,7 @@ public class JogoDaVelha {
         String opcao;
 
         while (true) {
-            System.out.println("==== JOGO DA VELHA INTERATIVO ====");
+            System.out.println("==== JOGO DA VELHA ====");
             System.out.println("1 - Iniciar Jogo");
             System.out.println("2 - Sair");
             System.out.print("Escolha uma opção: ");
