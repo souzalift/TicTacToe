@@ -113,7 +113,8 @@ public class JogoDaVelha {
             System.out.print("Selecione o tamanho do tabuleiro (3, 5 ou 7): ");
             String entrada = scanner.nextLine().trim();
 
-            try {
+            // Verifica se a entrada contém apenas dígitos
+            if (entrada.matches("\\d+")) {
                 int valor = Integer.parseInt(entrada);
                 if (valor == 3 || valor == 5 || valor == 7) {
                     tamanho = valor;
@@ -121,8 +122,8 @@ public class JogoDaVelha {
                 } else {
                     System.out.println("Valor inválido. Escolha apenas entre 3, 5 ou 7.");
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Digite um número inteiro (3, 5 ou 7).");
+            } else {
+                System.out.println("Entrada inválida. Digite um número inteiro válido.");
             }
         }
     }
@@ -228,21 +229,26 @@ public class JogoDaVelha {
     // Método para pedir a posição ao usuário
     static int[] pedirPosicao() {
         int linha, coluna;
-        while (true) {
-            try {
-                System.out.print("Digite a linha (1 a " + tamanho + "): ");
-                linha = Integer.parseInt(scanner.nextLine()) - 1;
 
-                System.out.print("Digite a coluna (1 a " + tamanho + "): ");
-                coluna = Integer.parseInt(scanner.nextLine()) - 1;
+        while (true) {
+            System.out.print("Digite a linha (1 a " + tamanho + "): ");
+            String entradaLinha = scanner.nextLine().trim();
+
+            System.out.print("Digite a coluna (1 a " + tamanho + "): ");
+            String entradaColuna = scanner.nextLine().trim();
+
+            // Verifica se ambas as entradas são numéricas
+            if (entradaLinha.matches("\\d+") && entradaColuna.matches("\\d+")) {
+                linha = Integer.parseInt(entradaLinha) - 1;
+                coluna = Integer.parseInt(entradaColuna) - 1;
 
                 if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
                     return new int[]{linha, coluna};
                 } else {
                     System.out.println("Posição inválida. Digite números entre 1 e " + tamanho + ".");
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida, use apenas números.");
+            } else {
+                System.out.println("Entrada inválida. Use apenas números inteiros.");
             }
         }
     }
