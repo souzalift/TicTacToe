@@ -1,3 +1,15 @@
+/**
+Trabalho LPA - UCSAL 2025.1
+Prof. Fabio Sales
+Tema: Jogo da Velha
+
+Alunos:,
+Igor Machado
+Marcelo Junior
+Raian Teles
+Agnaldo Nascimento
+Alisson Brito
+*/
 package TicTacToe;
 
 import java.util.Random;
