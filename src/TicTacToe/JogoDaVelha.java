@@ -109,11 +109,21 @@ public class JogoDaVelha {
 
     // Método para selecionar o tamanho do tabuleiro
     static void selecionarTamanhoTabuleiro() {
-        System.out.print("Selecione o tamanho do tabuleiro (3, 5, 7): ");
-        tamanho = Integer.parseInt(scanner.nextLine());
-        if (tamanho != 3 && tamanho != 5 && tamanho != 7) {
-            System.out.println("Tamanho inválido. Usando padrão 3x3.");
-            tamanho = 3;
+        while (true) {
+            System.out.print("Selecione o tamanho do tabuleiro (3, 5 ou 7): ");
+            String entrada = scanner.nextLine().trim();
+
+            try {
+                int valor = Integer.parseInt(entrada);
+                if (valor == 3 || valor == 5 || valor == 7) {
+                    tamanho = valor;
+                    break;
+                } else {
+                    System.out.println("Valor inválido. Escolha apenas entre 3, 5 ou 7.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Digite um número inteiro (3, 5 ou 7).");
+            }
         }
     }
 
