@@ -254,7 +254,7 @@ public class JogoDaVelha {
             linha = rand.nextInt(tamanho);
             coluna = rand.nextInt(tamanho);
         } while (!tabuleiro[linha][coluna].equals(" "));
-        System.out.println("Máquina jogou em: (" + linha + ", " + coluna + ")");
+        System.out.println("Máquina jogou em: (" + (linha + 1) + " , " + (coluna + 1) + ")");
         return new int[]{linha, coluna};
     }
 
