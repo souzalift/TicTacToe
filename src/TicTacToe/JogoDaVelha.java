@@ -36,13 +36,15 @@ public class JogoDaVelha {
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextLine().trim();
 
-            if (opcao.equals("1")) {
-                iniciarJogo();
-            } else if (opcao.equals("2")) {
-                System.out.println("Encerrando o jogo. Até logo!");
-                break;
-            } else {
-                System.out.println("Opção inválida. Digite '1' para iniciar ou '2' para sair.\n");
+            switch (opcao) {
+                case "1":
+                    iniciarJogo();
+                    break;
+                case "2":
+                    System.out.println("Encerrando o jogo. Até logo!");
+                    return;
+                default:
+                    System.out.println("Opção inválida. Digite '1' para iniciar ou '2' para sair.\n");
             }
         }
     }
