@@ -65,6 +65,8 @@ Igor Machado — @souzalift
 
 Raian Rosa - @raikonzz
 
+Marcelo Junior - @Marceloccmjunior-cyber
+
 Implementação textual feita com foco didático, validações robustas e organização escalável.
 
 ## 📄 Licença
